@@ -10,11 +10,65 @@ html {
 
 body {
   min-height: 100vh;
-  background: #0b1110;
+
   color: #f4f1e8;
   font-family: Arial, sans-serif;
+
+  background:
+      /* main green atmospheric light */
+      radial-gradient(
+          ellipse 70% 65% at 58% 48%,
+          rgba(86, 126, 76, 0.42) 0%,
+          rgba(45, 82, 67, 0.28) 35%,
+          rgba(20, 42, 37, 0.12) 58%,
+          transparent 78%
+      ),
+
+      /* teal light on left */
+      radial-gradient(
+          ellipse 65% 80% at 8% 48%,
+          rgba(35, 78, 84, 0.42) 0%,
+          rgba(20, 48, 52, 0.22) 40%,
+          transparent 75%
+      ),
+
+      /* green light at bottom/right */
+      radial-gradient(
+          ellipse 60% 55% at 78% 85%,
+          rgba(62, 91, 48, 0.32) 0%,
+          transparent 70%
+      ),
+
+      /* base */
+      #0b1110;
+
+  background-attachment: fixed;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+      linear-gradient(
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+      ),
+      linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px
+      );
+
+  background-size: 45px 45px;
+
+  opacity: 0.75;
+
+  z-index: 0;
+}
 .navbar {
   width: 90%;
   max-width: 1260px;
@@ -89,10 +143,12 @@ body {
   border-radius: 50%;
   background: #57e389;
   box-shadow: 0 0 10px #57e389;
-}.hero {
+}
+.hero {
   min-height: calc(100vh - 90px);
 
   position: relative;
+  isolation: isolate;
 
   display: flex;
   align-items: center;
@@ -102,6 +158,7 @@ body {
 
   overflow: hidden;
 }
+
 
 .hero-content {
   width: 52%;
@@ -129,6 +186,65 @@ body {
 
   letter-spacing: -5px;
   font-weight: 800;
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 900px;
+  height: 700px;
+
+  left: 30%;
+  top: 5%;
+
+  background:
+      radial-gradient(
+          ellipse,
+          rgba(110, 150, 78, 0.28) 0%,
+          rgba(54, 93, 72, 0.18) 35%,
+          transparent 72%
+      );
+
+  filter: blur(70px);
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  animation: ambientHeroGlow 10s ease-in-out infinite alternate;
+}
+@keyframes ambientHeroGlow {
+  0% {
+      transform: translate(-40px, 10px) scale(0.95);
+      opacity: 0.7;
+  }
+
+  100% {
+      transform: translate(40px, -20px) scale(1.08);
+      opacity: 1;
+  }
+}
+
+.typing-text {
+  color: #c8ff5a;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 5px;
+  height: 0.8em;
+  margin-left: 8px;
+  background: #c8ff5a;
+  vertical-align: baseline;
+  animation: cursorBlink 0.8s steps(2) infinite;
+}
+
+@keyframes cursorBlink {
+  50% {
+      opacity: 0;
+  }
 }
 
 .hero h1 span {
@@ -201,7 +317,33 @@ body {
   perspective: 1000px;
 }
 
+.hero-visual::before {
+  content: "";
 
+  position: absolute;
+
+  width: 600px;
+  height: 500px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+      radial-gradient(
+          ellipse,
+          rgba(92, 130, 67, 0.30) 0%,
+          rgba(53, 87, 65, 0.18) 35%,
+          transparent 70%
+      );
+
+  filter: blur(65px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
 /* CODE CARD */
 
 .code-card {
@@ -358,6 +500,36 @@ body {
       transform 0.2s ease-out;
 }
 
+.floating-object {
+  animation: floatingObject 4s ease-in-out infinite;
+}
+
+.object-api {
+  animation-delay: -1s;
+}
+
+.object-js {
+  animation-delay: -2s;
+}
+
+.object-db {
+  animation-delay: -3s;
+}
+
+.object-git {
+  animation-delay: -4s;
+}
+
+@keyframes floatingObject {
+  0%, 100% {
+      margin-top: 0;
+  }
+
+  50% {
+      margin-top: -10px;
+  }
+}
+
 .object-api {
   top: 70px;
   right: 25px;
@@ -392,16 +564,27 @@ body {
 .orbit {
   position: absolute;
 
-  border: 1px solid rgba(200, 255, 90, 0.2);
+  border: 1px solid rgba(145, 185, 78, 0.30);
 
   border-radius: 50%;
 
   pointer-events: none;
+
+  animation: orbitPulse 5s ease-in-out infinite;
 }
 
+@keyframes orbitPulse {
+  0%, 100% {
+      opacity: 0.45;
+  }
+
+  50% {
+      opacity: 0.9;
+  }
+}
 .orbit-one {
-  width: 420px;
-  height: 420px;
+  width: 470px;
+  height: 470px;
 
   transform: rotate(25deg);
 }
@@ -414,27 +597,7 @@ body {
 
   border-color: rgba(255, 255, 255, 0.08);
 }
-body {
-  min-height: 100vh;
 
-  background-color: #0b1110;
-
-  background-image:
-      linear-gradient(
-          rgba(255, 255, 255, 0.025) 1px,
-          transparent 1px
-      ),
-      linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.025) 1px,
-          transparent 1px
-      );
-
-  background-size: 45px 45px;
-
-  color: #f4f1e8;
-  font-family: Arial, sans-serif;
-}
 
 .cursor-glow {
   position: fixed;

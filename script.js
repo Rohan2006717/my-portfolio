@@ -107,3 +107,57 @@ projectCard.addEventListener("mouseleave", () => {
     `;
 
 });
+
+/* ================================
+   HERO TYPING ANIMATION
+================================ */
+
+const typingText = document.querySelector(".typing-text");
+
+const phrases = [
+    "REAL-TIME SYSTEMS",
+    "INTERACTIVE WEB",
+    "FULL-STACK PRODUCTS",
+    "DIGITAL EXPERIENCES"
+];
+
+let phraseIndex = 0;
+let characterIndex = 0;
+let isDeleting = false;
+
+function typeHeroText() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!isDeleting) {
+        typingText.textContent = currentPhrase.substring(
+            0,
+            characterIndex + 1
+        );
+
+        characterIndex++;
+
+        if (characterIndex === currentPhrase.length) {
+            setTimeout(() => {
+                isDeleting = true;
+            }, 1800);
+        }
+    } else {
+        typingText.textContent = currentPhrase.substring(
+            0,
+            characterIndex - 1
+        );
+
+        characterIndex--;
+
+        if (characterIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+    }
+
+    const typingSpeed = isDeleting ? 45 : 85;
+
+    setTimeout(typeHeroText, typingSpeed);
+}
+
+typeHeroText();
