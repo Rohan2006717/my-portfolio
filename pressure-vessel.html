@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pressure Vessel Design & FEA Validation — Rohan Singh</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cursor-glow"></div>
+<nav class="navbar">
+<div class="logo"><span class="logo-dot"></span><span>Rohan Singh</span></div>
+<div class="nav-links"><a href="index.html#projects">Projects</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></div>
+<div class="status"><span class="status-dot"></span><span>OPEN TO WORK</span></div>
+</nav>
+
+<main class="engineering-details-page">
+<a class="engineering-back" href="index.html#projects">← BACK TO PROJECTS</a>
+
+<section class="engineering-hero">
+<p class="engineering-kicker">MECHANICAL DESIGN / FEA</p>
+<h1>PRESSURE VESSEL<br><span>DESIGN &amp; FEA</span><br>VALIDATION</h1>
+<p class="engineering-summary">A mechanical design and simulation study focused on analytical pressure-vessel calculations, 3D CAD development and static structural FEA validation using SolidWorks and ANSYS Workbench.</p>
+<div class="engineering-tags"><span>SOLIDWORKS</span><span>ANSYS WORKBENCH</span><span>FEA</span><span>STATIC STRUCTURAL</span><span>MECHANICAL DESIGN</span></div>
+</section>
+
+<section class="case-section">
+<p class="case-section-label">01 / DESIGN PARAMETERS</p><h2>THE DESIGN</h2>
+<p>The preliminary design uses a cylindrical pressure vessel with hemispherical end heads. The selected geometry provides a compact model suitable for analytical stress calculations and subsequent static structural validation.</p>
+<div class="parameter-grid">
+<div class="parameter-card"><span>INTERNAL PRESSURE</span><strong>2 MPa</strong></div>
+<div class="parameter-card"><span>INTERNAL DIAMETER</span><strong>500 mm</strong></div>
+<div class="parameter-card"><span>CYLINDRICAL LENGTH</span><strong>1000 mm</strong></div>
+<div class="parameter-card"><span>WALL THICKNESS</span><strong>10 mm</strong></div>
+<div class="parameter-card"><span>MATERIAL</span><strong>Structural Steel</strong></div>
+<div class="parameter-card"><span>YIELD STRENGTH</span><strong>250 MPa</strong></div>
+<div class="parameter-card"><span>ANALYSIS</span><strong>Static Structural</strong></div>
+<div class="parameter-card"><span>SOFTWARE</span><strong>SW + ANSYS</strong></div>
+</div>
+</section>
+
+<section class="case-section">
+<p class="case-section-label">02 / CAD DEVELOPMENT</p><h2>3D MODEL</h2>
+<p>The vessel geometry is intended to be developed as a parametric SolidWorks model, with the shell thickness and principal dimensions controlled by the design requirements.</p>
+<img class="case-image" src="assets/pressure-vessel-hero.png" alt="Pressure vessel concept model">
+</section>
+
+<section class="case-section">
+<p class="case-section-label">03 / ANALYTICAL ANALYSIS</p><h2>STRESS CHECK</h2>
+<p>For a thin-walled cylindrical section, the preliminary hoop and longitudinal stresses are estimated using the standard pressure-vessel relations below.</p>
+<div class="case-two-col">
+<div class="calculation-box"><span class="case-section-label">HOOP STRESS</span><div class="formula">σh = PD / 2t</div><div class="result-value">50 MPa</div></div>
+<div class="calculation-box"><span class="case-section-label">LONGITUDINAL STRESS</span><div class="formula">σl = PD / 4t</div><div class="result-value">25 MPa</div></div>
+</div>
+<img class="case-image" src="assets/analytical-model.png" alt="Analytical pressure vessel model">
+<p class="preliminary-note">Preliminary design values shown here are working assumptions for the portfolio build. They should be replaced by the final calculated values after the complete engineering analysis is performed.</p>
+</section>
+
+<section class="case-section">
+<p class="case-section-label">04 / FEA SETUP</p><h2>STRUCTURAL VALIDATION</h2>
+<p>The intended ANSYS Workbench workflow is a static structural study with the vessel material assigned, appropriate constraints applied, internal pressure defined as the loading condition, and the mesh refined until the stress result shows acceptable convergence.</p>
+<img class="case-image" src="assets/mesh-concept.png" alt="Finite element mesh concept">
+</section>
+
+<section class="case-section">
+<p class="case-section-label">05 / FEA RESULTS</p><h2>RESULTS</h2>
+<div class="case-two-col"><img class="case-image" src="assets/von-mises-concept.png" alt="Preliminary von Mises stress concept"><img class="case-image" src="assets/deformation-concept.png" alt="Preliminary deformation concept"></div>
+<p class="preliminary-note">The result visuals in this initial website version are illustrative portfolio placeholders, not completed ANSYS output. Replace them with screenshots from the actual simulation before describing the values as final FEA results.</p>
+</section>
+
+<section class="case-section">
+<p class="case-section-label">06 / MESH REFINEMENT</p><h2>CONVERGENCE</h2>
+<p>A mesh-refinement study will compare maximum stress across progressively finer meshes. The final portfolio version should use the actual element counts and converged results from ANSYS.</p>
+<img class="case-image" src="assets/mesh-convergence-concept.png" alt="Mesh convergence concept">
+</section>
+
+<section class="case-section">
+<p class="case-section-label">07 / VALIDATION</p><h2>ANALYTICAL vs FEA</h2>
+<table class="validation-table"><thead><tr><th>RESULT</th><th>ANALYTICAL</th><th>FEA</th><th>STATUS</th></tr></thead>
+<tbody>
+<tr><td>Hoop / critical stress</td><td>50 MPa</td><td>To be validated</td><td>Pending ANSYS</td></tr>
+<tr><td>Longitudinal stress</td><td>25 MPa</td><td>To be validated</td><td>Pending ANSYS</td></tr>
+<tr><td>Deformation</td><td>—</td><td>To be calculated</td><td>Pending ANSYS</td></tr>
+<tr><td>Factor of safety</td><td>5.0*</td><td>To be validated</td><td>Pending ANSYS</td></tr>
+</tbody></table>
+<p class="preliminary-note">*Based on the preliminary 250 MPa yield-strength assumption and 50 MPa hoop-stress estimate. Final FoS should be recalculated using the selected material and actual governing FEA result.</p>
+</section>
+
+<section class="case-section">
+<p class="case-section-label">08 / PROJECT STATUS</p><h2>ONGOING</h2>
+<p>The portfolio page is structured around the intended engineering workflow. Final SolidWorks and ANSYS screenshots, mesh statistics and validated numerical results will replace the preliminary visuals as the analysis work is completed.</p>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

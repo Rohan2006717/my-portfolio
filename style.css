@@ -991,3 +991,43 @@ body {
   }
 
 }
+
+/* PRESSURE VESSEL PROJECT */
+.engineering-project{margin-top:30px}
+.project-status{margin-bottom:14px!important;color:#c8ff5a!important;font-family:monospace;font-size:10px!important;letter-spacing:2px}
+.engineering-preview{background:radial-gradient(circle at center,rgba(200,255,90,.10),transparent 62%)}
+.engineering-browser{width:100%;max-width:620px;border:1px solid rgba(255,255,255,.15);border-radius:16px;overflow:hidden;background:#101515;box-shadow:0 30px 70px rgba(0,0,0,.5);transform:perspective(1000px) rotateY(-4deg);transition:transform .5s ease,box-shadow .5s ease}
+.project-card:hover .engineering-browser{transform:perspective(1000px) rotateY(0deg) translateY(-8px);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 40px rgba(200,255,90,.08)}
+.engineering-bar{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;border-bottom:1px solid rgba(255,255,255,.08);background:#151c1c;color:#697272;font-family:monospace;font-size:9px;letter-spacing:.8px}
+.engineering-bar span:last-child{color:#c8ff5a}
+.engineering-image{width:100%;aspect-ratio:16/9;overflow:hidden}
+.engineering-image img{width:100%;height:100%;display:block;object-fit:cover}
+.engineering-details-page{max-width:1500px;margin:0 auto;padding:150px 8vw 120px}
+.engineering-back{display:inline-block;margin-bottom:55px;color:#899292;text-decoration:none;font-size:11px;letter-spacing:2px;transition:color .25s ease}
+.engineering-back:hover{color:#c8ff5a}
+.engineering-hero h1{max-width:1000px;font-size:clamp(55px,8vw,115px);line-height:.88;letter-spacing:-5px;margin-bottom:28px}
+.engineering-hero h1 span{color:#c8ff5a}
+.engineering-kicker{color:#8f9a9a;font-size:12px;letter-spacing:3px;margin-bottom:20px}
+.engineering-summary{max-width:700px;color:#929b9b;line-height:1.8;font-size:16px}
+.engineering-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.engineering-tags span,.parameter-card{border:1px solid rgba(255,255,255,.1);background:rgba(13,20,19,.65);border-radius:14px}
+.engineering-tags span{padding:8px 12px;color:#9da6a6;font-size:10px;letter-spacing:1px}
+.case-section{margin-top:120px}
+.case-section-label{color:#7d8787;font-size:11px;letter-spacing:3px;margin-bottom:12px}
+.case-section h2{font-size:clamp(38px,5vw,65px);letter-spacing:-3px;margin-bottom:35px}
+.case-section p{max-width:780px;color:#899292;line-height:1.8}
+.parameter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:35px}
+.parameter-card{padding:24px}
+.parameter-card span{display:block;color:#697272;font-size:9px;letter-spacing:1.5px;margin-bottom:10px}
+.parameter-card strong{color:#e5e4dc;font-size:20px}
+.case-image{width:100%;display:block;margin-top:30px;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:#101515}
+.case-two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.calculation-box{padding:30px;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(13,20,19,.65)}
+.calculation-box .formula{font-family:Georgia,serif;font-size:27px;color:#f4f1e8;margin:20px 0 10px}
+.result-value{color:#c8ff5a;font-size:30px;font-weight:700}
+.validation-table{width:100%;margin-top:30px;border-collapse:collapse;color:#9da6a6;font-size:13px}
+.validation-table th,.validation-table td{text-align:left;padding:18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.validation-table th{color:#c8ff5a;font-size:10px;letter-spacing:1.5px}
+.preliminary-note{margin-top:18px;padding:16px 18px;border-left:2px solid #c8ff5a;background:rgba(200,255,90,.035);color:#697272!important;font-size:12px!important}
+@media(max-width:900px){.parameter-grid{grid-template-columns:repeat(2,1fr)}.case-two-col{grid-template-columns:1fr}}
+@media(max-width:600px){.parameter-grid{grid-template-columns:1fr 1fr}.engineering-details-page{padding:110px 6vw 80px}.engineering-hero h1{letter-spacing:-3px}}
