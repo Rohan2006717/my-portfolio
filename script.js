@@ -1,4 +1,7 @@
 const cursorGlow = document.querySelector(".cursor-glow");
+const customCursor = document.querySelector(".custom-cursor");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeIcon = document.querySelector(".theme-icon");
 
 let mouseX = 0;
 let mouseY = 0;
@@ -9,6 +12,33 @@ let glowY = 0;
 document.addEventListener("mousemove", (event) => {
     mouseX = event.clientX;
     mouseY = event.clientY;
+
+    customCursor.style.left = `${mouseX}px`;
+    customCursor.style.top = `${mouseY}px`;
+});
+
+document.querySelectorAll("a, button").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+        customCursor.classList.add("is-hovering");
+    });
+
+    element.addEventListener("mouseleave", () => {
+        customCursor.classList.remove("is-hovering");
+    });
+});
+
+function setTheme(isDark) {
+    document.body.classList.toggle("dark-theme", isDark);
+    themeIcon.textContent = isDark ? "☀" : "☾";
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+    localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+}
+
+setTheme(localStorage.getItem("portfolio-theme") === "dark");
+
+themeToggle.addEventListener("click", () => {
+    setTheme(!document.body.classList.contains("dark-theme"));
 });
 
 function animateGlow() {
@@ -161,3 +191,52 @@ function typeHeroText() {
 }
 
 typeHeroText();
+
+/* ================================================
+   CONTACT TYPING ANIMATION
+================================================ */
+
+const contactTypingText = document.querySelector(".contact-typing-text");
+
+const contactPhrases = [
+    "something that solves probelm.",
+    "ideas that matter.",
+    "the next big thing."
+];
+
+let contactPhraseIndex = 0;
+let contactCharacterIndex = 0;
+let isContactDeleting = false;
+
+function typeContactText() {
+    const currentPhrase = contactPhrases[contactPhraseIndex];
+
+    if (!isContactDeleting) {
+        contactTypingText.textContent = currentPhrase.substring(
+            0,
+            contactCharacterIndex + 1
+        );
+        contactCharacterIndex++;
+
+        if (contactCharacterIndex === currentPhrase.length) {
+            setTimeout(() => {
+                isContactDeleting = true;
+            }, 1800);
+        }
+    } else {
+        contactTypingText.textContent = currentPhrase.substring(
+            0,
+            contactCharacterIndex - 1
+        );
+        contactCharacterIndex--;
+
+        if (contactCharacterIndex === 0) {
+            isContactDeleting = false;
+            contactPhraseIndex = (contactPhraseIndex + 1) % contactPhrases.length;
+        }
+    }
+
+    setTimeout(typeContactText, isContactDeleting ? 45 : 85);
+}
+
+typeContactText();

@@ -12,6 +12,7 @@
 
 <body>
   <div class="cursor-glow"></div>
+  <div class="custom-cursor" aria-hidden="true"><span></span></div>
     <nav class="navbar">
 
         <div class="logo">
@@ -25,9 +26,14 @@
             <a href="#contact">Contact</a>
         </div>
 
-        <div class="status">
-            <span class="status-dot"></span>
-            <span>OPEN TO WORK</span>
+        <div class="header-actions">
+            <div class="status">
+                <span class="status-dot"></span>
+                <span>OPEN TO WORK</span>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+                <span class="theme-icon" aria-hidden="true">☾</span>
+            </button>
         </div>
 
     </nav>
@@ -38,7 +44,7 @@
           <p class="hero-label">HELLO, I'M ROHAN.</p>
   
           <h1 class="hero-title">
-            I BUILD<br>
+            I Build<br>
             <span class="typing-text"></span><span class="typing-cursor"></span>
         </h1>
   
@@ -311,8 +317,29 @@
 
   </div>
 
-</section>
-    <script src="script.js"></script>
+  </section>
+
+  <section class="contact" id="contact">
+      <div class="contact-card">
+          <p class="contact-label">GET IN TOUCH</p>
+          <h2>Let's build<br><span class="contact-typing-text"></span><span class="contact-typing-cursor"></span></h2>
+          <p class="contact-description">
+              Open to internships, collaborations, and meaningful product work.
+          </p>
+
+          <div class="contact-actions">
+              <a class="contact-email" href="mailto:rohankemwal12@gmail.com">rohankemwal12@gmail.com</a>
+              <a class="contact-linkedin" href="https://www.linkedin.com/in/rohan-singh-737904307/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+          </div>
+
+          <div class="contact-footer">
+              <span>ROHAN SINGH</span>
+              <span>DELHI, INDIA</span>
+          </div>
+      </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
