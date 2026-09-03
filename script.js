@@ -27,15 +27,24 @@ document.querySelectorAll("a, button").forEach((element) => {
     });
 });
 
-function setTheme(isDark) {
+function setTheme(isDark, persist = true) {
     document.body.classList.toggle("dark-theme", isDark);
     themeIcon.textContent = isDark ? "☀" : "☾";
     themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
     themeToggle.title = isDark ? "Switch to light mode" : "Switch to dark mode";
-    localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+
+    document.querySelectorAll(".stat strong").forEach(stat => {
+        stat.style.color = isDark ? "#c8ff5a" : "rgb(254, 171, 17)";
+    });
+    
+    if (persist) {
+        localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+    }
 }
 
-setTheme(localStorage.getItem("portfolio-theme") === "dark");
+// Light mode is the default. A theme is remembered only after the visitor chooses one.
+const savedTheme = localStorage.getItem("portfolio-theme");
+setTheme(savedTheme === "dark", false);
 
 themeToggle.addEventListener("click", () => {
     setTheme(!document.body.classList.contains("dark-theme"));
@@ -145,10 +154,10 @@ projectCard.addEventListener("mouseleave", () => {
 const typingText = document.querySelector(".typing-text");
 
 const phrases = [
-    "REAL-TIME SYSTEMS",
-    "INTERACTIVE WEB",
-    "FULL-STACK PRODUCTS",
-    "DIGITAL EXPERIENCES"
+    "Real-Time Systems",
+    "Interactive Web",
+    "Full-Stack Products",
+    "Digital Experiences"
 ];
 
 let phraseIndex = 0;
