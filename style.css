@@ -1012,6 +1012,128 @@ body.dark-theme .custom-cursor.is-hovering {
   transform: scale(1.04);
 }
 
+.photo-slider {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.photo-track {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.45s ease;
+}
+
+.photo-track img {
+  flex: 0 0 100%;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+.photo-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(6px);
+
+  color: #f4f1e8;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+      background 0.25s ease,
+      transform 0.25s ease,
+      opacity 0.25s ease;
+
+  opacity: 0;
+}
+
+.photo-slider:hover .photo-arrow {
+  opacity: 1;
+}
+
+.photo-arrow:hover {
+  background: rgba(200, 255, 90, 0.85);
+
+  color: #0b1110;
+}
+
+.photo-arrow:disabled {
+  opacity: 0.25;
+
+  cursor: default;
+
+  pointer-events: none;
+}
+
+.photo-arrow-left {
+  left: 10px;
+}
+
+.photo-arrow-right {
+  right: 10px;
+}
+
+.photo-counter {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  z-index: 3;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  backdrop-filter: blur(6px);
+
+  color: #f4f1e8;
+
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+}
+
 .about {
   position: relative;
 

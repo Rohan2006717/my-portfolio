@@ -249,3 +249,43 @@ function typeContactText() {
 }
 
 typeContactText();
+
+/* ================================================
+   PROJECT PHOTO SLIDER
+================================================ */
+
+document.querySelectorAll("[data-slider]").forEach((slider) => {
+    const track = slider.querySelector("[data-track]");
+    const counter = slider.querySelector("[data-counter]");
+    const prevBtn = slider.querySelector("[data-prev]");
+    const nextBtn = slider.querySelector("[data-next]");
+
+    const images = track.querySelectorAll("img");
+    const total = images.length;
+
+    let currentIndex = 0;
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        counter.textContent = `${currentIndex + 1} / ${total}`;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === total - 1;
+    }
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < total - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    updateSlider();
+});
